@@ -1,0 +1,150 @@
+{% extends 'predictor/main.html' %} {% block content %}
+<div id="searchBar">
+  <div class="ui-widget searchbox">
+    <input id="tags" />
+    <button class="lfbtn"><i class="fas fa-arrow-left"></i></button>
+    <button class="rgbtn"><i class="fas fa-arrow-right"></i></button>
+  </div>
+</div>
+<div class="row">
+  <div class="col">
+    <div style="width: 100%; text-align: center; color: white">
+      <h2>Team A</h2>
+      <hr />
+    </div>
+    <div class="teamA_area"></div>
+  </div>
+  <div class="col">
+    <div style="width: 100%; text-align: center; color: white">
+      <h2>Team B</h2>
+      <hr />
+    </div>
+    <div class="teamB_area"></div>
+  </div>
+</div>
+<div id="snackbar">Invalid Tag!</div>
+<script>
+           /* -----Dataset to filter -----*/
+            $(function () {
+              $("#tags").autocomplete({
+                source: '{% url 'teamchoice' %}',
+              });
+              $()
+            });
+            /* -----SNACKBAR FUNCTION GIVES ERROR MESSAGES NICELY -----*/
+            function snackbarFunction(condition) {
+          // Get the snackbar DIV
+          var x = document.getElementById("snackbar");
+          x.innerHTML=condition;
+          // Add the "show" class to DIV
+          x.className = "show";
+
+          // After 3 seconds, remove the show class from DIV
+          setTimeout(function(){ x.className = x.className.replace("show", ""); }, 3000);
+        }
+
+            var teamA=[];
+            var teamB=[];
+            var map={};
+            const leftbtn= document.getElementsByClassName("lfbtn")[0];
+            const rightbtn= document.getElementsByClassName("rgbtn")[0];
+            var name="banana";
+            var prevname="banana";
+             /* -----NAME VAR STORES SELECTED NAME FROM THE AUTCOMPLETE SEARCH-----*/
+             $('#tags').on('autocompleteselect', function (e, ui) {
+                  name=ui.item.value;
+              });
+               /* -----SENDS PLAYER TO TEAM A -----*/
+           leftbtn.addEventListener("click", function(){
+            if(name!="banana" && map[name]!=1 && map[name]!=2 && teamA.length<=11)
+            {
+              teamA.push(name);
+              map[name]=1;
+               var areaa=$(".teamA_area");
+                   var namee='"'+name+'"';
+                  var cross='<i class="far fa-times-circle"></i>';
+                  var tag='<div class="tagmake ">'+name+'<button type ="button" class="crossbtn"value='+namee+'>'+cross+'</button>'+'</div>';
+                  areaa.append(tag);
+
+            }
+            else if(name=='Banana')
+            {
+              snackbarFunction("Empty");
+            }
+            else if(map[name]==1)
+            {
+              snackbarFunction("Player already taken by Team A");
+            }
+            else if(map[name]==2)
+            {
+              snackbarFunction("Player already taken by Team B");
+            }
+            else if(teamA.length>=12)
+            {
+              snackbarFunction("Team A is already full");
+            }
+            console.log("Team A ="+teamA);
+            console.log("Team B ="+teamB);
+          });
+           /* -----SENDS PLAYERS TO TEAM B -----*/
+            rightbtn.addEventListener("click", function(){
+            if(name!="banana" && map[name]!=1&& map[name]!=2&& teamB.length<=11)
+            {
+               teamB.push(name);
+               map[name]=2;
+               var areaa=$(".teamB_area");
+                  var namee='"'+name+'"';
+                  var cross='<i class="far fa-times-circle"></i>';
+                  var tag='<div class="tagmake ">'+name+'<button type ="button" class="crossbtn"value='+namee+'>'+cross+'</button>'+'</div>';
+                  areaa.append(tag);
+            }
+            else if(name=='Banana')
+            {
+              snackbarFunction("Empty");
+            }
+            else if(map[name]==1)
+            {
+              snackbarFunction("Player already taken by Team A");
+            }
+            else if(map[name]==2)
+            {
+              snackbarFunction("Player already taken by Team B");
+            }
+            else if(teamB.length>=12)
+            {
+              snackbarFunction("Team B is already full");
+            }
+            console.log("Team A ="+teamA);
+            console.log("Team B ="+teamB);
+          });
+  /* Deleting elements from an array if the cross button gets clicked */
+          Array.prototype.remove = function() {
+        var what, a = arguments, L = a.length, ax;
+        while (L && this.length) {
+            what = a[--L];
+            while ((ax = this.indexOf(what)) !== -1) {
+                this.splice(ax, 1);
+            }
+        }
+        return this;
+    };
+          /* -----REMOVING PLAYERS FROM TEAM A -----*/
+          $(".teamA_area").on('click','.crossbtn',function() {
+           $(this).parent().remove();
+           var searchtoremove=$(this).parent().text();
+           console.log(searchtoremove);
+           map[searchtoremove]=0;
+           teamA.remove(searchtoremove);
+           snackbarFunction(searchtoremove+" removed from Team A");
+      });
+           /* -----REMOVING PLAYERS FROM TEAM B-----*/
+       $(".teamB_area").on('click','.crossbtn',function() {
+           $(this).parent().remove();
+           var searchtoremove=$(this).parent().text();
+           console.log(searchtoremove);
+           map[searchtoremove]=0;
+           teamB.remove(searchtoremove);
+           snackbarFunction(searchtoremove+" removed from Team B");
+      });
+</script>
+{% endblock content %}
