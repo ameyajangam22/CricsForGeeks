@@ -1,0 +1,17 @@
+.main-tables {
+  position: relative;
+  top: 5px;
+  left: 15vh;
+  display: flex;
+  flex-wrap: wrap;
+}
+.dtable {
+  font-size: 18px;
+  margin-right: 20px;
+  margin: 20px 0;
+}
+td,
+tr {
+  width: 200px;
+  text-align: center;
+}

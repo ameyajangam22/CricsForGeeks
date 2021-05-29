@@ -1,0 +1,32 @@
+{% extends 'predictor/main.html' %} {% block content %}
+<div class="row" style="margin-top: 100px">
+  <div class="col zoom">
+    <div style="width: 100%; text-align: center; color: white">
+      <h2>Make your own team</h2>
+      <hr />
+    </div>
+    <div class="teamA_area">
+      <button
+        onclick="window.location.href = '{% url 'teamchoice'%}';"
+        class="clickhere"
+      >
+        CLICK HERE
+      </button>
+    </div>
+  </div>
+  <div class="col zoom">
+    <div style="width: 100%; text-align: center; color: white">
+      <h2>Select from existing teams</h2>
+      <hr />
+    </div>
+    <div class="teamB_area">
+      <button
+        onclick="window.location.href = '{% url 'teamchoice'%}';"
+        class="clickhere"
+      >
+        CLICK HERE
+      </button>
+    </div>
+  </div>
+</div>
+{% endblock content %}

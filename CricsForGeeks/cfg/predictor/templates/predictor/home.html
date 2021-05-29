@@ -1,0 +1,148 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>CricsForGeeks</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MoGo</title>
+    <link
+      href="https://fonts.googleapis.com/css?family=Montserrat:400,700"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Roboto:400,700,300italic"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Kaushan+Script"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://dl.dropboxusercontent.com/u/69747888/MoGo%20carousel/font-awesome.min.css"
+    />
+    <link rel="stylesheet" href="{% static 'css/home.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/loading.css' %}" />
+  </head>
+  <body>
+    <div class="loading-wrapper">
+      <div class="loader">
+        <span class="loader-block"></span>
+        <span class="loader-block"></span>
+        <span class="loader-block"></span>
+        <span class="loader-block"></span>
+        <span class="loader-block"></span>
+        <span class="loader-block"></span>
+        <span class="loader-block"></span>
+        <span class="loader-block"></span>
+        <span class="loader-block"></span>
+      </div>
+    </div>
+    <!-- partial:index.partial.html -->
+    <header class="main-header">
+      <div class="header-wrapper">
+        <div class="main-logo">CricsForGeeks</div>
+        <nav>
+          <ul class="main-menu">
+            <li><a href="{% url 'rules'%}">Mechanics</a></li>
+            <li><a href="{% url 'teamchoice'%}">Predict</a></li>
+            <li><a href="#section-7">Stats</a></li>
+            <li><a href="#main-footer">Contact</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+    <section id="section-1">
+      <div class="content-slider">
+        <input
+          type="radio"
+          id="banner1"
+          class="sec-1-input"
+          name="banner"
+          checked
+        />
+        <input type="radio" id="banner2" class="sec-1-input" name="banner" />
+        <input type="radio" id="banner3" class="sec-1-input" name="banner" />
+        <input type="radio" id="banner4" class="sec-1-input" name="banner" />
+        <div class="slider">
+          <div id="top-banner-1" class="banner">
+            <div class="banner-inner-wrapper">
+              <h2>Welcome to</h2>
+              <h1>CricsForGeeks</h1>
+              <div class="line"></div>
+              <div class="learn-more-button">
+                <a href="#section-2">Learn More</a>
+              </div>
+            </div>
+          </div>
+          <div id="top-banner-2" class="banner">
+            <div class="banner-inner-wrapper">
+              <h2>How does cricket work?</h2>
+              <h1>Game Mechanics</h1>
+              <div class="line"></div>
+              <div class="learn-more-button">
+                <a href="{% url 'rules'%}">Learn More</a>
+              </div>
+            </div>
+          </div>
+          <div id="top-banner-3" class="banner">
+            <div class="banner-inner-wrapper">
+              <h2>predict</h2>
+              <h1>Predict</h1>
+              <div class="line"></div>
+              <div class="learn-more-button">
+                <a href="{% url 'teamoption'%}">Learn More</a>
+              </div>
+            </div>
+          </div>
+          <div id="top-banner-4" class="banner">
+            <div class="banner-inner-wrapper">
+              <h2>View</h2>
+              <h1>Player stats</h1>
+              <div class="line"></div>
+              <div class="learn-more-button">
+                <a href="#main-footer">Learn More</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <nav>
+          <div class="controls">
+            <label for="banner1"
+              ><span class="progressbar"
+                ><span class="progressbar-fill"></span></span
+              ><span>01</span> Intro</label
+            >
+            <label for="banner2"
+              ><span class="progressbar"
+                ><span class="progressbar-fill"></span></span
+              ><span>02</span> Mechanics</label
+            >
+            <label for="banner3"
+              ><span class="progressbar"
+                ><span class="progressbar-fill"></span></span
+              ><span>03</span> Predict</label
+            >
+            <label for="banner4"
+              ><span class="progressbar"
+                ><span class="progressbar-fill"></span></span
+              ><span>04</span> Statistics</label
+            >
+          </div>
+        </nav>
+      </div>
+    </section>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    {% comment %}
+    <script src="https://use.fontawesome.com/8ae46bccf5.js"></script>
+    {% endcomment %}
+
+    <script src="{% static '/js/home.js' %}"></script>
+  </body>
+</html>

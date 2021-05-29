@@ -1,0 +1,120 @@
+{% extends 'predictor/main.html' %} {% block content %} {% comment %}
+<table>
+  {% for i in teamA %}
+  <tr>
+    <td>{{i}}</td>
+  </tr>
+  {%endfor%}
+</table>
+<table>
+  {% for i in teamB %}
+  <tr>
+    <td>{{i}}</td>
+  </tr>
+  {%endfor%}
+</table>
+{% endcomment %}
+<div class=" main-tables">
+  <div class="dtable A-batting">
+    <table>
+      <thead>
+        <tr>
+          <th>Team A</th>
+          <th>Runs made</th>
+          <th>Balls faced</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for bat_name,stats in bat_a.items%}
+        <tr>
+          <td>{{bat_name}}</td>
+          {%for stat in stats%}
+          <td>{{stat}}</td>
+          {%endfor%}
+          {% comment %} <td>{{bat_a[i][1]}}</td> {% endcomment %}
+        </tr>
+        {%endfor%}
+        <tr>
+          <td>Total</td>
+          <td>{{total_a}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="dtable B-batting">
+    <table>
+      <thead>
+        <tr>
+            <th>Team B</th>
+            <th>Runs made</th>
+            <th>Balls faced</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for bat_name,stats in bat_b.items%}
+        <tr>
+          <td>{{bat_name}}</td>
+          {%for stat in stats%}
+          <td>{{stat}}</td>
+          {%endfor%}
+          {% comment %} <td>{{bat_a[i][1]}}</td> {% endcomment %}
+        </tr>
+        {%endfor%}
+        <tr>
+          <td>Total</td>
+          <td>{{total_b}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="dtable B-bowling">
+    <table>
+      <thead>
+        <tr>
+            <th>Team B </th>
+            <th>Runs conceded</th>
+            <th>Overs bowled</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for bowl_name,stats in bowl_b.items%}
+        <tr>
+          <td>{{bowl_name}}</td>
+          {%for stat in stats%}
+          <td>{{stat}}</td>
+          {%endfor%}
+          {% comment %} <td>{{bat_a[i][1]}}</td> {% endcomment %}
+        </tr>
+        {%endfor%}
+      </tbody>
+    </table>
+  </div>
+  <div class="dtable A-bowling">
+    <table>
+      <thead>
+        <tr>
+            <th>Team A </th>
+            <th>Runs conceded</th>
+            <th>Overs bowled</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          {% for bowl_name,stats in bowl_a.items%}
+        <tr>
+          <td>{{bowl_name}}</td>
+          {%for stat in stats%}
+          <td>{{stat}}</td>
+          {%endfor%}
+          {% comment %} <td>{{bat_a[i][1]}}</td> {% endcomment %}
+        </tr>
+        {%endfor%}
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  </div>
+  </div>
+  <br>
+
+{% endblock content %}

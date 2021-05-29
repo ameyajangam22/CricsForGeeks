@@ -1,0 +1,26 @@
+.row {
+  display: flex; /* equal height of the children */
+  z-index: -1;
+}
+
+.col {
+  flex: 1; /* additionally, equal width */
+  padding: 1em;
+  border-radius: 10px;
+  margin: 10px;
+  height: 450px;
+  background-image: linear-gradient(
+    rgba(5, 151, 255, 0.9),
+    rgba(49, 4, 198, 0.721)
+  );
+}
+.zoom {
+  transition: transform 0.2s; /*Animation*/
+}
+.zoom:hover {
+  transform: scale(1.05); /* (150% zoom)*/
+}
+.clickhere {
+  width: 400px;
+  height: 100px;
+}
