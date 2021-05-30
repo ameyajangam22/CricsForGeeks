@@ -1,14 +1,20 @@
+body {
+  z-index: -1;
+  overflow: hidden;
+}
 .main-tables {
   position: relative;
   top: 5px;
   left: 15vh;
   display: flex;
   flex-wrap: wrap;
+  z-index: -1;
 }
 .dtable {
   font-size: 18px;
   margin-right: 20px;
   margin: 20px 0;
+  z-index: -15;
 }
 td,
 tr {

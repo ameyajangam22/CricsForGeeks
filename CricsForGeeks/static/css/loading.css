@@ -7,7 +7,9 @@
   margin-left: -3.66667em;
   margin-top: -3.66667em;
 }
-
+body {
+  overflow-x: hidden;
+}
 .loader-block {
   position: absolute;
   top: 0;
