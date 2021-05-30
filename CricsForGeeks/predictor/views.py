@@ -80,21 +80,21 @@ def stats(request):
 
             teams = {"Chennai Super Kings": CSK,
                      "Delhi Capitals": DC,
-                     "Kolkata Night Riders": KKR,
+                     "Kolkata Knight Riders": KKR,
                      "Mumbai Indians": MI,
                      "Punjab Kings": PBKS,
                      "Rajasthan Royals": RR,
-                     "Royal Challenges Bangalore": RCB,
+                     "Royal Challengers Bangalore": RCB,
                      "Sunrisers Hyderabad": SRH}
             final_batsman_a_stats, final_bowler_a_stats, final_batsman_b_stats, final_bowler_b_stats, total_a, total_b = predicter.get_prediction(
                 teams[teamA_name], teams[teamB_name])
             team_short = {"Chennai Super Kings": "CSK",
                           "Delhi Capitals": "DC",
-                          "Kolkata Night Riders": "KKR",
+                          "Kolkata Knight Riders": "KKR",
                           "Mumbai Indians": "MI",
                           "Punjab Kings": "PBKS",
                           "Rajasthan Royals": "RR",
-                          "Royal Challenges Bangalore": "RCB",
+                          "Royal Challengers Bangalore": "RCB",
                           "Sunrisers Hyderabad": "SRH"}
             context = {"bat_a": {i: final_batsman_a_stats[i] for i in sorted(final_batsman_a_stats.keys(), key=final_batsman_a_stats.get, reverse=True)},
                        "bat_b": {i: final_batsman_b_stats[i] for i in sorted(final_batsman_b_stats.keys(), key=final_batsman_b_stats.get, reverse=True)},

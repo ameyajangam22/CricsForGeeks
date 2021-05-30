@@ -1,31 +1,34 @@
 {% extends 'predictor/main.html' %} {% block content %}
+<style>
+  .images-option {
+    height: 300px;
+    width: 400px;
+    margin: 20px 150px;
+  }
+</style>
 <div class="row" style="margin-top: 100px">
-  <div class="col zoom">
+  <div
+    class="col zoom"
+    onclick="window.location.href = '{% url 'teamchoice'%}';"
+  >
     <div style="width: 100%; text-align: center; color: white">
       <h2>Make your own team</h2>
       <hr />
     </div>
-    <div class="teamA_area">
-      <button
-        onclick="window.location.href = '{% url 'teamchoice'%}';"
-        class="clickhere"
-      >
-        CLICK HERE
-      </button>
+    <div style="margin: auto">
+      <img style="width:400px;"src="/static/images/custom-team.jpg" alt="" class="images-option" />
     </div>
   </div>
-  <div class="col zoom">
+  <div
+    class="col zoom"
+    onclick="window.location.href = '{% url 'teamvteam'%}';"
+  >
     <div style="width: 100%; text-align: center; color: white">
       <h2>Select from existing teams</h2>
       <hr />
     </div>
-    <div class="teamB_area">
-      <button
-        onclick="window.location.href = '{% url 'teamvteam'%}';"
-        class="clickhere"
-      >
-        CLICK HERE
-      </button>
+    <div style="margin: auto">
+      <img src="/static/images/exist-team.jpg" alt="" class="images-option" />
     </div>
   </div>
 </div>

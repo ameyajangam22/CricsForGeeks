@@ -10,14 +10,14 @@
 <div class="row">
   <div class="col">
     <div style="width: 100%; text-align: center; color: white">
-      <h2>Team A <span>(</span><span id="teamAcnt">0</span><span>)</span></h2>
+      <h2 id="teamAnameh2">Team A</span></h2>
       <hr />
     </div>
     <div class="teamA_area"></div>
   </div>
   <div class="col">
     <div style="width: 100%; text-align: center; color: white">
-      <h2>Team B <span>(</span><span id="teamBcnt">0</span><span>)</span></h2>
+      <h2 id="teamBnameh2">Team B</h2>
       <hr />
     </div>
     <div class="teamB_area"></div>
@@ -49,7 +49,7 @@
     var teams = [
       "Chennai Super Kings",
       "Delhi Capitals",
-      "Kolkata Night Riders",
+      "Kolkata Knight Riders",
       "Mumbai Indians",
       "Punjab Kings",
       "Rajasthan Royals",
@@ -103,6 +103,7 @@
         snackbarFunction("Only 1 team can be selected");
       } else {
         teamA.push(name);
+        document.getElementById("teamAnameh2").innerHTML=name;
         map[name] = 1;
         var areaa = $(".teamA_area");
         var namee = '"' + name + '"';
@@ -116,7 +117,13 @@
           cross +
           "</button>" +
           "</div>";
+           var img = document.createElement("img");
+        img.src = "/static/images/logos/" + name + ".png";
+        img.style.height = "400px";
+        img.style.width = "400px";
+        img.id=name;
         areaa.append(tag);
+        areaa.append(img);
         document.getElementById("tags").value = "";
         counterA++;
         cntA.innerHTML = counterA;
@@ -144,6 +151,7 @@
         snackbarFunction("Only 1 team can be selected");
       } else {
         teamB.push(name);
+        document.getElementById("teamBnameh2").innerHTML=name;
         var areaa = $(".teamB_area");
         var namee = '"' + name + '"';
         var cross = '<i class="far fa-times-circle"></i>';
@@ -156,6 +164,12 @@
           cross +
           "</button>" +
           "</div>";
+        var img = document.createElement("img");
+        img.src = "/static/images/logos/" + name + ".png";
+        img.style.height = "400px";
+        img.style.width = "400px";
+        img.id=name;
+        areaa.append(img);
         areaa.append(tag);
         document.getElementById("tags").value = "";
         counterB++;
@@ -191,22 +205,28 @@
     $(this).parent().remove();
     var searchtoremove = $(this).parent().text();
     console.log(searchtoremove);
+    document.getElementById(searchtoremove).remove();
     map[searchtoremove] = 0;
     teamA.remove(searchtoremove);
+    document.getElementById("teamAnameh2").innerHTML="TEAM A";
     snackbarFunction(searchtoremove + " removed from Team A");
     counterA--;
     cntA.innerHTML = counterA;
+    
   });
   /* -----REMOVING PLAYERS FROM TEAM B-----*/
   $(".teamB_area").on("click", ".crossbtn", function () {
     $(this).parent().remove();
     var searchtoremove = $(this).parent().text();
     console.log(searchtoremove);
+    document.getElementById(searchtoremove).remove();
     map[searchtoremove] = 0;
     teamB.remove(searchtoremove);
+    document.getElementById("teamBnameh2").innerHTML="TEAM B";
     snackbarFunction(searchtoremove + " removed from Team B");
     counterB--;
     cntB.innerHTML = counterB;
+    
   });
   $(".calculate").click(function () {
     console.log("Team A LEN" + teamA.length);
