@@ -10,14 +10,14 @@
 <div class="row">
   <div class="col">
     <div style="width: 100%; text-align: center; color: white">
-      <h2>Team A</h2>
+      <h2>Team A <span>(</span><span id="teamAcnt">0</span><span>)</span></h2>
       <hr />
     </div>
     <div class="teamA_area"></div>
   </div>
   <div class="col">
     <div style="width: 100%; text-align: center; color: white">
-      <h2>Team B</h2>
+      <h2>Team B <span>(</span><span id="teamBcnt">0</span><span>)</span></h2>
       <hr />
     </div>
     <div class="teamB_area"></div>
@@ -68,8 +68,13 @@
                   var map={};
                   const leftbtn= document.getElementsByClassName("lfbtn")[0];
                   const rightbtn= document.getElementsByClassName("rgbtn")[0];
+                  var search
                   var name="banana";
                   var prevname="banana";
+                  var cntA=document.getElementById("teamAcnt");
+                  var cntB=document.getElementById("teamBcnt");
+                  var counterA=0;
+                  var counterB=0;
                    /* -----NAME VAR STORES SELECTED NAME FROM THE AUTCOMPLETE SEARCH-----*/
                    $('#tags').on('autocompleteselect', function (e, ui) {
                         name=ui.item.value;
@@ -91,6 +96,9 @@
                        var cross='<i class="far fa-times-circle"></i>';
                        var tag='<div class="tagmake ">'+name+'<button type ="button" class="crossbtn"value='+namee+'>'+cross+'</button>'+'</div>';
                        areaa.append(tag);
+                       document.getElementById("tags").value = "";
+                       counterA++;
+                       cntA.innerHTML=counterA;
                   }
 
 
@@ -128,6 +136,9 @@
                        var cross='<i class="far fa-times-circle"></i>';
                        var tag='<div class="tagmake ">'+name+'<button type ="button" class="crossbtn"value='+namee+'>'+cross+'</button>'+'</div>';
                        areaa.append(tag);
+                       document.getElementById("tags").value = "";
+                       counterB++;
+                       cntB.innerHTML=counterB;
                      }
 
                   }
@@ -166,6 +177,8 @@
                  map[searchtoremove]=0;
                  teamA.remove(searchtoremove);
                  snackbarFunction(searchtoremove+" removed from Team A");
+                 counterA--;
+                 cntA.innerHTML=counterA;
             });
                  /* -----REMOVING PLAYERS FROM TEAM B-----*/
              $(".teamB_area").on('click','.crossbtn',function() {
@@ -175,6 +188,8 @@
                  map[searchtoremove]=0;
                  teamB.remove(searchtoremove);
                  snackbarFunction(searchtoremove+" removed from Team B");
+                    counterB--;
+                    cntB.innerHTML=counterB;
             });
             $(".calculate").click(function(){
 
