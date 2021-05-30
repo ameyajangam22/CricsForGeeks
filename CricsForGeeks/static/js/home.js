@@ -7,16 +7,31 @@
   }
 
   var bannerTimer = setInterval(bannerSwitcher, 5000);
-
+  function scrollprevent() {
+        $('html').css({
+          'overflow-y': 'hidden',
+          'height': '100%'
+    })
+  }
+  function scrollrestore()
+  {
+        $('html').css({
+      'overflow-y': 'auto',
+      'height': 'auto'
+    })
+  }
   $('nav .controls label').click(function() {
     clearInterval(bannerTimer);
     bannerTimer = setInterval(bannerSwitcher, 5000)
   });
-   $(window).on("load",function(){
+   scrollprevent();
+   $(window).on("load",function(){    
           setTimeout(function(){$(".loading-wrapper").fadeOut("slow");
-          console.log('jae');},1000);
-          
-        });
+          scrollrestore();
+          console.log('jae');       
+        },1000);
+        
+    });
 // set the time here
 ///// Anchor Smooth Scroll /////
 //   $('.main-menu a, .learn-more-button a').click(function(e){

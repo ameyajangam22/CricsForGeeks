@@ -1,19 +1,6 @@
-{% extends 'predictor/main.html' %} {% block content %} {% comment %}
-<table>
-  {% for i in teamA %}
-  <tr>
-    <td>{{i}}</td>
-  </tr>
-  {%endfor%}
-</table>
-<table>
-  {% for i in teamB %}
-  <tr>
-    <td>{{i}}</td>
-  </tr>
-  {%endfor%}
-</table>
-{% endcomment %}
+{% extends 'predictor/main.html' %} {% block content %}
+<div class="container-fluid stats-wrapper">
+<h1 style="color:white;text-align:center">Predictions</h1>
 <div class=" main-tables">
   <div class="dtable A-batting">
     <table>
@@ -35,8 +22,8 @@
         </tr>
         {%endfor%}
         <tr>
-          <td>Total</td>
-          <td>{{total_a}}</td>
+          <td class="totalA">Total</td>
+          <td class="totalA">{{total_a}}</td>
         </tr>
       </tbody>
     </table>
@@ -61,8 +48,8 @@
         </tr>
         {%endfor%}
         <tr>
-          <td>Total</td>
-          <td>{{total_b}}</td>
+          <td class="totalB">Total</td>
+          <td class="totalB">{{total_b}}</td>
         </tr>
       </tbody>
     </table>
@@ -115,6 +102,5 @@
   </div>
   </div>
   </div>
-  <br>
-
+</div>
 {% endblock content %}

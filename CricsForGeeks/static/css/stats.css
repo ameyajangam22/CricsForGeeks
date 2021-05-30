@@ -1,6 +1,16 @@
-body {
-  z-index: -1;
+.stats-wrapper {
+  position: relative;
+  z-index: -1111;
+  background: url("/static/images/stats-bg.jpg") no-repeat center center;
+  background-size: cover;
+  padding: 0;
+  margin: 0;
   overflow: hidden;
+}
+body,
+html {
+  margin: 0;
+  padding: 0;
 }
 .main-tables {
   position: relative;
@@ -13,11 +23,79 @@ body {
 .dtable {
   font-size: 18px;
   margin-right: 20px;
-  margin: 20px 0;
+  margin: 20px 20px;
   z-index: -15;
 }
 td,
-tr {
+tr,
+th {
   width: 200px;
   text-align: center;
+  padding: 1px;
+}
+div.A-batting th {
+  background-image: linear-gradient(to right, blueviolet, rgb(230, 119, 245));
+  color: white;
+}
+div.A-batting tr:nth-child(odd) {
+  background-color: rgb(240, 224, 255);
+}
+div.A-batting tr:nth-child(even) {
+  background-color: rgba(223, 141, 238, 0.789);
+}
+div.A-bowling th {
+  background-image: linear-gradient(to right, blueviolet, rgb(230, 119, 245));
+  color: white;
+}
+div.A-bowling tr {
+  background-color: rgb(221, 196, 245);
+}
+div.A-bowling tr:nth-child(odd) {
+  background-color: rgb(240, 224, 255);
+}
+div.A-bowling tr:nth-child(even) {
+  background-color: rgba(223, 141, 238, 0.789);
+}
+div.B-batting th {
+  background-image: linear-gradient(
+    to right,
+    rgb(17, 104, 255),
+    rgb(71, 177, 253)
+  );
+  color: white;
+}
+div.B-batting tr:nth-child(odd) {
+  background-color: rgb(173, 224, 255);
+}
+div.B-batting tr:nth-child(even) {
+  background-color: rgb(131, 206, 253);
+}
+div.B-bowling th {
+  background-image: linear-gradient(
+    to right,
+    rgb(17, 104, 255),
+    rgb(71, 177, 253)
+  );
+  color: white;
+}
+div.B-bowling tr {
+  background-color: rgb(149, 214, 255);
+}
+div.B-bowling tr:nth-child(odd) {
+  background-color: rgb(173, 224, 255);
+}
+div.B-bowling tr:nth-child(even) {
+  background-color: rgb(131, 206, 253);
+}
+.totalA {
+  background-image: linear-gradient(to right, blueviolet, rgb(235, 114, 251));
+  color: white;
+}
+.totalB {
+  background-image: linear-gradient(
+    to right,
+    rgb(17, 104, 255),
+    rgb(37, 160, 248)
+  );
+  color: white;
 }
