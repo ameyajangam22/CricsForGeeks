@@ -24,22 +24,22 @@ def teamvteam(request):
 
 
 def stats(request):
-    teamA = []
-    teamB = []
+    teamAx = []
+    teamBx = []
     context = {}
     if request.method == "POST":
-        if request.POST["teamAL"] == 1 and request.POST["teamBL"] == 1:
-
+        if request.POST["teamAL"] == '11' and request.POST["teamBL"] == '11':
+            print("TRES BUIAN")
             alen = int(request.POST["teamAL"])
             blen = int(request.POST["teamBL"])
 
             for i in range(alen):
-                teamA = (request.POST["teamA"+str(i)])
+                teamAx.append(request.POST["teamA"+str(i)])
             for i in range(blen):
-                teamB = (request.POST["teamB"+str(i)])
+                teamBx.append(request.POST["teamB"+str(i)])
 
             final_batsman_a_stats, final_bowler_a_stats, final_batsman_b_stats, final_bowler_b_stats, total_a, total_b = predicter.get_prediction(
-                teamA, teamB)
+                teamAx, teamBx)
 
             context = {"bat_a": {i: final_batsman_a_stats[i] for i in sorted(final_batsman_a_stats.keys(), key=final_batsman_a_stats.get, reverse=True)},
                        "bat_b": {i: final_batsman_b_stats[i] for i in sorted(final_batsman_b_stats.keys(), key=final_batsman_b_stats.get, reverse=True)},
@@ -51,6 +51,7 @@ def stats(request):
                        "teamB_name": "Team B"
                        }
         else:
+            print("MUDA")
             alen = int(request.POST["teamAL"])
             blen = int(request.POST["teamBL"])
 
