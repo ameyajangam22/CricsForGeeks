@@ -1,5 +1,6 @@
 .stats-wrapper {
-  position: relative;
+  position: absolute;
+  height: 100%;
   z-index: -1111;
   background: url("/static/images/stats-bg.jpg") no-repeat center center;
   background-size: cover;
